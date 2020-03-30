@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:ChatDemo"
+    xmlns:controls="clr-namespace:ChatDemo.Controls"
+    xmlns:models="clr-namespace:ChatDemo.Models"
+    xmlns:effects="clr-namespace:ChatDemo.Effects"
+    mc:Ignorable="d"
+    Title="Chat"
+    x:Class="ChatDemo.MainPage">
+
+    <controls:KeyboardAwareGrid ColumnSpacing="0" RowSpacing="0" x:DataType="local:MainPage">
+
+        <Grid.Resources>
+            <DataTemplate x:Key="MessageDataTemplate" x:DataType="models:ChatMessage">
+                <Label Text="{Binding Text}" TextColor="Red" />
+            </DataTemplate>
+        </Grid.Resources>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ScrollView x:Name="ChatMessagesScrollView" Margin="0,0,0,80">
+                <ScrollView.Effects>
+                    <effects:KeyboardDismissOnDragEffect />
+                </ScrollView.Effects>
+                <StackLayout x:Name="ChatMessagesLayout"
+                             BindableLayout.ItemsSource="{Binding Messages}"
+                             BindableLayout.ItemTemplateSelector="{StaticResource ChatMessageDataTemplateSelector}">
+                    <StackLayout.Padding>
+                        <OnPlatform x:TypeArguments="Thickness"
+                                    iOS="10, 5, 10, 5"
+                                    Android="10, 5, 10, 5" />
+                    </StackLayout.Padding>
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout Orientation="Horizontal" Grid.Row="0" Padding="20" VerticalOptions="EndAndExpand">
+                <controls:KeyboardAwareEntry x:Name="MessageEntry"
+                                             Keyboard="Chat"
+                                             HorizontalOptions="FillAndExpand"
+                                             HeightRequest="40"
+                                             Placeholder="Text Message"
+                                             ReturnCommand="{Binding TapCommand}"
+                                             ReturnType="Send" />
+                <Button x:Name="SendButton"
+                        BackgroundColor="Transparent"
+                        Command="{Binding TapCommand}"
+                        Text="Send"
+                        VerticalOptions="Center" />
+            </StackLayout>
+
+    </controls:KeyboardAwareGrid>
+
+</ContentPage>

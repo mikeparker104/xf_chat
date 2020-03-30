@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChatDemo.ViewCells.ChatMessageOutboundCell">
+
+    <StackLayout x:Name="MessageContainer"  Padding="85,0,10,0">
+         <Frame x:Name="MessageFrame"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,15,0,0"
+                Padding="10"
+                CornerRadius="10"
+                BackgroundColor="{StaticResource OutboundBackground}">
+            <Frame.HasShadow>
+                <OnPlatform x:TypeArguments="x:Boolean" iOS="False" Android="True" />
+            </Frame.HasShadow>
+             <Label Text="{Binding Text}" TextColor="{StaticResource PrimaryWhite}" />
+        </Frame>
+        <Label Text="{Binding Path=Timestamp, StringFormat='{0:HH:mm}'}"
+               FontSize="Micro"
+               HorizontalTextAlignment="End"
+               Grid.Row="1"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               TextColor="Gray" />
+    </StackLayout>
+
+</ContentView>
