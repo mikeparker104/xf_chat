@@ -14,12 +14,6 @@
 
     <controls:KeyboardAwareGrid ColumnSpacing="0" RowSpacing="0" x:DataType="local:MainPage">
 
-        <Grid.Resources>
-            <DataTemplate x:Key="MessageDataTemplate" x:DataType="models:ChatMessage">
-                <Label Text="{Binding Text}" TextColor="Red" />
-            </DataTemplate>
-        </Grid.Resources>
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
