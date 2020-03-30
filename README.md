@@ -2,9 +2,9 @@
 Quick and dirty prototype implementing common user experience requirements for chat-based apps using Xamarin.Forms specifically in relation to the keyboard behavior. 
 
 <p>
-<img src="readme_illustrations/android_chat_experience.gif" alt="Indicative chat exerience" height="350" style="display:inline-block;" />
+<img src="readme_illustrations/android_chat_experience.gif" alt="Indicative chat exerience for Android" height="350" style="display:inline-block;" />
 
-<img src="readme_illustrations/ios_chat_experience.gif" alt="Weather App for iOS" height="350" style="display:inline-block;" />
+<img src="readme_illustrations/ios_chat_experience.gif" alt="Indicative chat exerience for iOS" height="350" style="display:inline-block;" />
 </p>
 
 This was created to quickly explore various approaches and identify opportunities to enhance Xamarin.Forms to reduce the amount of custom platform-specific code required to achieve the same result in future.   
